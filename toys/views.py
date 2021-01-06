@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def dashboard(request):
-    return HttpResponse('Welcome to my project')
+    return render(request,'toys/dashboard.html')
