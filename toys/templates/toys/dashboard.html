@@ -5,6 +5,20 @@
     <title>myFirstWebSite</title>
 </head>
 <body>
-    <h1>Welcome to my first project!</h1>
+    <div class="container">
+        <h1 align="center">Welcome to my first project!</h1>
+        <h2>All users</h2>
+        {% for user in users %}
+        <p>{{ user.firtname }} &nbsp {{ user.lastname }}</p>
+        {% endfor %}
+
+        <h2>All toys</h2>
+        {% for toy in toys %}
+        <p>{{ toy.name }}</p>
+        {% endfor %}
+
+    </div>
+
+
 </body>
 </html>
