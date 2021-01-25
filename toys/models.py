@@ -12,14 +12,14 @@ class addres(models.Model):
 
 
 class user(models.Model):
-    firtname = models.CharField(max_length=25)
+    firstname = models.CharField(max_length=25)
     lastname = models.CharField(max_length=25,null=True,blank=True)
     email = models.EmailField(max_length=25,null=True,blank=True)
     phone = models.CharField(max_length=25,null=True,blank=True)
     age = models.IntegerField(null=True,blank=True)
 
     def __str__(self):
-        return self.firtname
+        return self.firstname
 
 
     Addres = models.OneToOneField(addres,on_delete=models.PROTECT,null=True,blank=True)
@@ -34,4 +34,19 @@ class toy(models.Model):
     tags = models.ManyToManyField(tag, related_name='toys')
     created_at = models.TimeField(auto_now=True)
     upteted_at = models.TimeField(auto_now=True)
+
+class Company(models.Model):
+    name = models.CharField(max_length=150)
+    logo = models.CharField(max_length=1000, blank=True)
+    admin_name = models.CharField(max_length=200)
+    admin_email = models.CharField(max_length=200)
+    website = models.CharField(max_length=200, blank=True)
+
+class Employee(models.Model):
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    salary = models.DecimalField(max_digits=9,decimal_places=2,blank=True)
+    email = models.EmailField(unique=True, null=True)
+
 

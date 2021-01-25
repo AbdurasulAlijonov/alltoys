@@ -4,6 +4,6 @@ from .models import *
 
 # Create your views here.
 def dashboard(request):
-    users = user.objects.all()
+    users = user.objects.only('firtname')
     toys = toy.objects.all()
     return render(request,'toys/dashboard.html',{'users': users,'toys':toys})
