@@ -46,7 +46,8 @@ class Employee(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    salary = models.DecimalField(max_digits=9,decimal_places=2,blank=True)
+    salary = models.DecimalField(max_digits=9,decimal_places=2)
     email = models.EmailField(unique=True, null=True)
+
 
 
