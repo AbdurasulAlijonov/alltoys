@@ -1,5 +1,6 @@
 from toys.models import *
 from django.db import transaction
+from django.db.models import Count,Avg
 
 
 def my_transaction():
@@ -15,4 +16,4 @@ def my_transaction():
                 raise Exception('Google nomi Facebook ka o\'zgardi, lekin oyliklar oshmadi')
         except:
             pass
-
+Employee.objects.filter(company__name='Intellektual Software').aggregate(Avg('salary'))

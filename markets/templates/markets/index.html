@@ -1,0 +1,25 @@
+{% extends 'markets/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block content %}
+
+    <div class="container" style="margin-left: 3ch">
+        {% for product in product_list %}
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>Narxi: {{ product.price  }}</p>
+            <p>{{ product.addTime }}</p>
+
+        {% endfor %}
+        
+    </div>
+
+    {% endblock %}
+
+</body>
+</html>
