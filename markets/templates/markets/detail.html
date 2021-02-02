@@ -1,0 +1,17 @@
+{% extends 'markets/base.html' %}
+
+
+    {% block content %}
+      {% for product in all.current_products %}
+          <h2>{{ product.name }}</h2>
+          <p> {{ product.description }}</p>
+          <p>Narxi: {{ product.price  }}</p>
+          <p>{{ product.addTime }}</p>
+
+      {% endfor %}
+
+
+    {% endblock  %}
+
+
+
