@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
+from django.utils.html import format_html
 
 from toys.services.send_email_salary import send_email
 from .models import *
@@ -19,12 +20,15 @@ class ToyAdmin(ModelAdmin):
             ld += ['created_at']
         return ld
 
+class UserToysInline(admin.TabularInline):
+    model = Toy
+
 @admin.register(User)
 class UserAdmin(ModelAdmin):
     list_display = ('firstname', 'lastname', 'email','phone', 'age')
     search_fields = ('firstname', 'lastname')
     list_display_links = ('firstname','lastname')
-
+    readonly_fields = ('password_change_link',)
     #exclude = ('age',)
     #fields = ('firstname', 'lastname', 'email','phone', 'age')
     fieldsets = (('Asosiy ma\'lumotlar',{
@@ -36,12 +40,19 @@ class UserAdmin(ModelAdmin):
         'description':'Kiritilishi majburiy emas!',
     })
                  )
+    inlines = [UserToysInline]
+
+    def password_change_link(self,obj):
+        return format_html('<a href="/admin/toys/user/{0}/password/">Change password</a>'.format(obj.pk))
+
 @admin.register(Tag)
 class TagAdmin(ModelAdmin):
     list_display = ('name', 'description')
 #    list_editable = ('name','description',)
     search_fields = ('^name',)
     empty_value_display = '---'
+
+
 
 
 @admin.register(Addres)
