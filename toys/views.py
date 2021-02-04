@@ -9,12 +9,12 @@ from .models import *
 # Create your views here.
 class dashboard(View):
     def get(self, request):
-        users = user.objects.only('firstname')
-        toys = toy.objects.all()
+        users = User.objects.only('firstname')
+        toys = Toy.objects.all()
         return render(request,'toys/dashboard.html',{'users': users,'toys':toys})
 
 class ToyListView(ListView):
-    model = toy
+    model = Toy
     template_name = "toys/toylistview.html"
 
 class ToyCreateView(CreateView):

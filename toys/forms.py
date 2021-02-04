@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from .models import toy
+from .models import Toy
 
 class toyForm(ModelForm):
     class Meta:
-        model = toy
-        fields = ('name','User','description','tags')
+        model = Toy
+        fields = ('name','user','description','tags')
