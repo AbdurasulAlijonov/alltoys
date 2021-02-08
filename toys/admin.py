@@ -8,10 +8,10 @@ from .models import *
 @admin.register(Toy)
 class ToyAdmin(ModelAdmin):
     list_display = ( 'name', 'user', 'description')
-    search_fields =('name',)
+   # search_fields =('name',)
     list_display_links = None
     #list_editable = ('description',)
-    autocomplete_fields = ('user',)
+    #autocomplete_fields = ('user',)
 
 
     def get_list_display(self, request):
@@ -25,9 +25,9 @@ class UserToysInline(admin.TabularInline):
 
 @admin.register(User)
 class UserAdmin(ModelAdmin):
-    list_display = ('firstname', 'lastname', 'email','phone', 'age')
-    search_fields = ('firstname', 'lastname')
-    list_display_links = ('firstname','lastname')
+    # list_display = ('firstname', 'lastname', 'email','phone', 'age')
+    # search_fields = ('firstname', 'lastname')
+    # list_display_links = ('firstname','lastname')
     readonly_fields = ('password_change_link',)
     #exclude = ('age',)
     #fields = ('firstname', 'lastname', 'email','phone', 'age')

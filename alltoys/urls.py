@@ -6,4 +6,5 @@ urlpatterns = [
     path('market/',include('markets.urls')),
     path('',include('toys.urls'),name='toys'),
     path('admin/', admin.site.urls),
+    #path('accounts/',include('accounts.urls'))
 ]

@@ -7,5 +7,6 @@ urlpatterns = [
     path('',views.dashboard.as_view(),name='dashboard'),
     path('toylistview/',views.ToyListView.as_view(),name='toylistview'),
     path('toycreateview/', views.ToyCreateView.as_view(), name='toycreateview'),
+    path('register/',views.register,name='register')
 
 ]

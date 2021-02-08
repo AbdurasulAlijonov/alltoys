@@ -40,7 +40,7 @@ class Toy(models.Model):
     name = models.CharField(max_length=25)
     user = models.ForeignKey(User,related_name='toys',on_delete=models.CASCADE,null=True,blank=True)
     description = models.TextField(null=True,blank=True)
-    #   type = models.CharField(max_length=ToyTypeEnum.max_length(), choices=ToyTypeEnum.get_value_tuples(), blank=True)
+    #type = models.CharField(max_length=ToyTypeEnum.max_length(), choices=ToyTypeEnum.get_value_tuples(), blank=True)
     photo = models.ImageField(upload_to='#', blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name='toys')
     created_at = models.TimeField(auto_now=True)
