@@ -1,0 +1,19 @@
+{% extends 'toys/base.html' %}
+
+<title>Login</title>
+
+{% block content %}
+    <h1>Login form</h1>
+    <form method="post" action="" >
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username or Email"><br>
+            <input type="password" name="password" placeholder="Password"><br>
+            <input type="submit" value="Log in">
+    </form>
+
+    {% for message in messages %}
+            <h3>{{ message }}</h3>
+
+        {% endfor %}
+{% endblock %}
+
