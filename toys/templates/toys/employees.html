@@ -1,12 +1,18 @@
 {% extends 'toys/base.html' %}
-
+{% load customemployee %}
 <title>Employees</title>
+
+
 
 {% block content %}
     <h3>Create employee</h3>
     <a href="{% url 'employecreate' %}">Add_Employee</a>
     <h2>All employees</h2>
-    {% for emp in employee_list %}
+
+    {% for emp in  employee_list %}
         <a href="{% url 'editemployee' emp.id %}">{{ emp.first_name }}</a><br>
     {% endfor %}
+
+    <hr>
+    {% render_employee_list object_list %}
 {% endblock %}
